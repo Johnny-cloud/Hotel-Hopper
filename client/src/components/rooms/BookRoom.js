@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import Calendar from 'react-calendar'; 
 
 
-
 const BookRoom = () => {
     const {roomToBook, dateIn, setDateIn, dateOut, setDateOut, currentCustomer, setCurrentCustomer} = useContext(HotelContext)
     const navigate = useNavigate()
