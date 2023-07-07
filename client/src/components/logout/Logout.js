@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 
+
 const Logout = () => {
 
     const navigate = useNavigate()
