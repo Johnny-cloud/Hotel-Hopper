@@ -42,7 +42,6 @@ const CustomerLogin = () => {
     setFormData({...formData, [event.target.name]: event.target.value})
   }
 
-  console.log(currentCustomer)
   return (
     <div>
     <Form className='login-form'>
