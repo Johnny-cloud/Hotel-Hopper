@@ -164,4 +164,9 @@ a{
     padding: 20px;
     text-align: center;
 }
-
+.review{
+    margin: 10px;
+}
+.reviews{
+    margin-top: 20px;
+}

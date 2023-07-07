@@ -44,6 +44,7 @@ const Navigation = () => {
           <Link to="/"><i class="bi bi-house"></i> Home</Link>
           <Link to="/hotels"><i class="bi bi-buildings-fill"></i> Hotels</Link>
           <Link to="/customer-login"><i class="bi bi-person"></i> Customer Log In</Link> 
+          <Link to="/admin-login"><i class="bi bi-person-circle"></i> Admin Log In</Link>
       </div>
     )
   }

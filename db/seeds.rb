@@ -83,5 +83,12 @@ Customer.create!(name: "Merylinn", email:"merylinn@gmail.com", password: "doe", 
 Admin.create!(email: "admin@gmail.com", password: "admin123", password_confirmation: "admin123")
 Admin.create!(email: "admin2@gmail.com", password: "admin123", password_confirmation: "admin123")
 
+Review.create(title: "They were extremely accommodating and allowed us to check in early at like 10am. We got to hotel super early and I didn’t wanna wait. So this was a big plus. The sevice was exceptional as well. Would definitely send a friend there.")
+Review.create(title: "I had a wonderful experience at the (HN). Every staff member I encountered, from the valet to the check- in to the cleaning staff were delightful and eager to help! Thank you! Will recommend to my colleagues")
+Review.create(title: ". The staff at this property are all great! They all go above and beyond to make your stay comfortable. Please (HN) give your staff awards!")
+Review.create(title: "Took advantage of the downtown location to walk to dinner, check out a couple galleries, and have drinks. It was great. Service top notch as always. Bed comfort can not be beat.")
+Review.create(title: "The rooms were clean, very comfortable, and the staff was amazing. They went over and beyond to help make our stay enjoyable. I highly recommend this hotel for anyone visiting downtown (L).")
+Review.create(title: "This is the perfect hotel for a weekend getaway in (L). The downtown area on Main Street is a best kept secret and the (HN) offers everything you need if you don’t feel like venturing out")
+
 
 puts "...............................done seeding"

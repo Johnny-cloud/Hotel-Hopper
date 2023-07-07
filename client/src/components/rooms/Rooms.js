@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react'
-
+import Reviews from '../reviews/Reviews'
 import SingleRoom from './SingleRoom'
 import { Card } from 'react-bootstrap'
 import { Rating } from 'react-simple-star-rating'
@@ -71,6 +71,11 @@ const Rooms = () => {
              
             </Card.Body>
           </Card>
+          <div className='reviews'>
+          <h3>What people say</h3>
+            <Reviews />
+          </div>
+          
           <h3>Rooms</h3>
           <div className='container'>
             {myHotel.rooms.map(room => <SingleRoom room={room}/>)}
