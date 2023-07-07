@@ -22,7 +22,6 @@ const App = () => {
   const [currentCustomer, setCurrentCustomer] = useState('');
   const [currentAdmin, setCurrentAdmin] = useState('')
 
-
   
   return (
     <div>
