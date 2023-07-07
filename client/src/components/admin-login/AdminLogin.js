@@ -39,7 +39,6 @@ const AdminLogin = () => {
     setFormData({...formData, [event.target.name]: event.target.value})
   }
 
-  console.log(currentAdmin)
 
   return (
     <div>
