@@ -8,7 +8,6 @@ const Customers = () => {
     if(customers){
         totalCustomers = customers.length
     }
-    
 
     useEffect(
         () => {
