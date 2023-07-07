@@ -4,6 +4,7 @@ class CreateHotels < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image
 
+      
       t.timestamps
     end
   end

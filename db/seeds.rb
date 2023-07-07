@@ -90,5 +90,4 @@ Review.create(title: "Took advantage of the downtown location to walk to dinner,
 Review.create(title: "The rooms were clean, very comfortable, and the staff was amazing. They went over and beyond to help make our stay enjoyable. I highly recommend this hotel for anyone visiting downtown (L).")
 Review.create(title: "This is the perfect hotel for a weekend getaway in (L). The downtown area on Main Street is a best kept secret and the (HN) offers everything you need if you don’t feel like venturing out")
 
-
 puts "...............................done seeding"
