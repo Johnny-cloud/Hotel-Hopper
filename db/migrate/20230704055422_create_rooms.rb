@@ -6,8 +6,6 @@ class CreateRooms < ActiveRecord::Migration[7.0]
       t.string :image
       t.integer :available
       t.string :room_type
-      
-      
 
       t.timestamps
     end

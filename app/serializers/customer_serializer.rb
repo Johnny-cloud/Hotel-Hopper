@@ -1,4 +1,4 @@
 class CustomerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :date_in, :date_out, :email
-  belongs_to :room
+  attributes :id, :name,  :email
+  has_many :rooms
 end

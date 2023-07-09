@@ -9,6 +9,9 @@ import HotelView from './hotels/HotelView'
 import CustomerLogin from './customer-login/CustomerLogin'
 import AdminLogin from './admin-login/AdminLogin'
 import Logout from './logout/Logout'
+import Signup from './signup/Signup'
+import CustomerBookings from './customer-bookings/CustomerBookings'
+import Bookings from './bookings/Bookings'
 
 const App = () => {
 
@@ -36,9 +39,13 @@ const App = () => {
                 <Route exact path= "/hotels/:id" element={<Rooms />}/>
                 <Route exact path="/myHotel" element={<HotelView />}/>
                 {currentAdmin ?<Route exact path="/customers" element={<Customers/>} />  : "/"} 
+                {currentAdmin ?<Route exact path="/bookings" element={<Bookings/>} />  : "/"} 
                 <Route exact path="/customer-login" element={<CustomerLogin />} />
                 <Route exact path="/admin-login" element={<AdminLogin />}/>
                 <Route exact path="/logout" element={<Logout />} />
+                <Route exact path='/signup' element={<Signup />}/>
+                <Route exact path='/customer-bookings' element={<CustomerBookings />}/>
+
               </Routes>
             </div>
           </HotelContext.Provider>

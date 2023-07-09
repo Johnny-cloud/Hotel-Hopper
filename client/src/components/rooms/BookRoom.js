@@ -6,26 +6,28 @@ import Calendar from 'react-calendar';
 
 
 const BookRoom = () => {
-    const {roomToBook, dateIn, setDateIn, dateOut, setDateOut, currentCustomer, setCurrentCustomer} = useContext(HotelContext)
+    const {roomToBook, dateIn, setDateIn, dateOut, setDateOut, currentCustomer} = useContext(HotelContext)
     const navigate = useNavigate()
     let dateDiff = (dateOut.getTime() - dateIn.getTime()) / (1000 * 60 * 60 * 24)
     let price = Math.round((dateDiff * 30))
+    
 
     console.log(dateIn);
 
     const[formData, setFormData] = useState({
-        email: currentCustomer.email,
         room_id: roomToBook.id
     })
+    console.log(formData.room)
 
     function handleChange(event){
         setFormData({...formData, [event.target.name]: event.target.value})
     }
 
+
     function bookRoom(){
         if(currentCustomer){
-            fetch(`/customers/${currentCustomer.id}`,{
-                method: "PATCH",
+            fetch(`/book-room/${currentCustomer.id}`,{
+                method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({...formData,
                     date_in: dateIn.toLocaleDateString(),
@@ -34,7 +36,6 @@ const BookRoom = () => {
             })
             .then(res => {
                 if(res.ok){
-                    res.json().then(user => setCurrentCustomer(user))
                     navigate("/showBookingDetails")
                 }
                 else{
@@ -64,7 +65,7 @@ const BookRoom = () => {
                      Email:
                     </Form.Label>
                     <Col sm="10">
-                    <Form.Control type='email' name="email"  placeholder={formData.email} onChange={handleChange}/>
+                    <Form.Control type='email' name="email"  placeholder={currentCustomer.email} onChange={handleChange}/>
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3">

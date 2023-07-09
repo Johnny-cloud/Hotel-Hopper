@@ -6,13 +6,17 @@ import {useNavigate} from 'react-router-dom'
 const CustomerLogin = () => {
   const navigate = useNavigate()
 
-  const {currentCustomer, setCurrentCustomer} = useContext(HotelContext)
+  const {setCurrentCustomer} = useContext(HotelContext)
   const [formData, setFormData] = useState({
-    email: "Enter email",
-    password: "Enter password"
+    email: "",
+    password: ""
   })
 
   function logIn(){
+    setFormData({
+      email: "",
+      password: ""
+    })
     fetch("/login", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -20,22 +24,16 @@ const CustomerLogin = () => {
     })
     .then(res => {
       if(res.ok){
-        res.json().then(user => setCurrentCustomer(user))
-         navigate(-1)
+        res.json().then(user => {
+          setCurrentCustomer(user)
+          navigate("/customer-bookings")
+        })
       }else{
         alert("Wrong password")
         navigate("/customer-login")
       }
 
-    })
-
-    setFormData({
-      email: "",
-      password: ""
-    })
-    
-     
-    
+    }) 
   }
 
   function handleChange(event){
@@ -48,11 +46,11 @@ const CustomerLogin = () => {
         <h2>Customer</h2>
         <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" name="email" placeholder={formData.email} onChange={handleChange} />
+            <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" name="password" placeholder={formData.password} onChange={handleChange} />
+            <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
         </Form.Group>
         <Form.Group>
             <Form.Label><Button variant='success' onClick={logIn}>Login</Button></Form.Label>

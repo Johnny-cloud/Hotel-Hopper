@@ -72,7 +72,6 @@ body{
 }
 .main-content{
     height: 100%;
-    margin-left: 200px;
 }
 .details-form-container{
     margin-top: 150px;
@@ -133,29 +132,13 @@ li{
 .checkout:hover{
     background-color: red;
 }
-.my-navigation{
-    width: 200px;
-    height: 100%;
-    background-color: bisque;
-    position: fixed;
-    margin-top: 0;
-    padding-top: 30px;
-    top:0%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
+
 a{
     text-decoration: none;
     color: black;
 }
-.my-navigation > *{
-    font-size: 18px;
-    font: bold;
-    margin: 20px
 
-}
-.login-form{
+.login-form, .signup-form{
     width: 50%;
     margin: auto;
     margin-top: 100px;
@@ -169,4 +152,16 @@ a{
 }
 .reviews{
     margin-top: 20px;
+}
+.btn-container{
+    margin-top: 15px;
+}
+.me-auto > a{
+    font-size: 18px;
+    color: rgb(3, 3, 69);
+    margin: 15px;
+}
+.me-auto > a:hover{
+    border-bottom: solid;
+    border-color: aliceblue;
 }

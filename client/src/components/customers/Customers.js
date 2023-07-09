@@ -12,10 +12,17 @@ const Customers = () => {
     useEffect(
         () => {
             fetch("/customers")
-            .then(res => res.json())
-            .then(data => setCustomers([...data]))
+            .then(res => {
+                if(res.ok){
+                    res.json().then(cust => setCustomers(cust))
+                }
+                else{
+                    console.log(res.json())
+                }
+            })
         }, [totalCustomers]
     );
+    console.log(customers);
   return (
     <div>
         <div>
@@ -23,10 +30,6 @@ const Customers = () => {
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Room Number</th>
-                    <th>Room Type</th>
-                    <th>Date in</th>
-                    <th>Date out</th>
                     <th></th>
                 </tr>
             </thead>

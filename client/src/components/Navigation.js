@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import {Link} from 'react-router-dom'
+import {LinkContainer} from 'react-router-bootstrap'
 import HotelContext from './HotelContext'
-import { Button } from 'react-bootstrap'
+import { Button, Nav, Navbar } from 'react-bootstrap'
 
 
 const Navigation = () => {
@@ -24,27 +24,67 @@ const Navigation = () => {
 
   if(currentCustomer){
     return (
-    <div className='my-navigation'>
-        <Link to="/"><i class="bi bi-house"></i> Home</Link>
-        <Link to="/hotels"><i class="bi bi-buildings-fill"></i> Hotels</Link>
-        <Link to="/logout"><Button onClick={logOutCustomer} variant='primary'>Logout</Button></Link>
-    </div>
+    <Navbar className='navbar'>
+    <Navbar.Brand className='me-auto'><h1>{currentCustomer.name}</h1></Navbar.Brand>
+      <Nav className='me-auto'>
+      <LinkContainer to="/">
+          <Nav.Link>Home</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/customer-bookings">
+          <Nav.Link>My Bookings</Nav.Link>
+        </LinkContainer> 
+      </Nav>
+      <Nav className='me-auto'>
+        <LinkContainer to="/logout">
+          <Nav.Link><Button variant='primary' onClick={logOutCustomer}>Logout</Button></Nav.Link>
+        </LinkContainer>
+      </Nav>
+    </Navbar>
   )
   } else if(currentAdmin){
     return(
-       <div className='my-navigation'>
-        <Link to="/customers"><i class="bi bi-people-fill"></i> Customers</Link>
-        <Link to="/logout"><Button onClick={logOutAdmin} variant='primary'>Logout</Button></Link>
-    </div>
+        <Navbar>
+          <Navbar.Brand className='me-auto'><h1>Admin</h1></Navbar.Brand>
+      <Nav className='me-auto'>
+      <LinkContainer to="/customers">
+          <Nav.Link>Customers</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/bookings">
+          <Nav.Link>All Bookings</Nav.Link>
+        </LinkContainer> 
+      </Nav>
+      <Nav className='me-auto'>
+        <LinkContainer to="/logout">
+          <Nav.Link><Button variant='primary' onClick={logOutAdmin}>Logout</Button></Nav.Link>
+        </LinkContainer>
+      </Nav>
+        </Navbar>
     )
    
   }else{
     return (
-      <div className='my-navigation'>
-          <Link to="/"><i class="bi bi-house"></i> Home</Link>
-          <Link to="/hotels"><i class="bi bi-buildings-fill"></i> Hotels</Link>
-          <Link to="/customer-login"><i class="bi bi-person"></i> Customer Log In</Link> 
-          <Link to="/admin-login"><i class="bi bi-person-circle"></i> Admin Log In</Link>
+      <div >
+        <Navbar >
+        <Navbar.Brand className='me-auto'><h2>Hotel Hopper</h2></Navbar.Brand>
+        <Nav className='me-auto'>
+            <LinkContainer to="/">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            
+          </Nav>
+          <Nav className='me-auto'>
+          <LinkContainer to="/customer-login">
+              <Nav.Link>Log In</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/signup">
+              <Nav.Link>Sign Up</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/admin-login">
+              <Nav.Link>Admin</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar>
+          
       </div>
     )
   }

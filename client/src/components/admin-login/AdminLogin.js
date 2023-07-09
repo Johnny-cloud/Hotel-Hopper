@@ -7,7 +7,7 @@ const AdminLogin = () => {
 
   const navigate = useNavigate()
 
-  const {currentAdmin, setCurrentAdmin} = useContext(HotelContext)
+  const {setCurrentAdmin} = useContext(HotelContext)
   const [formData, setFormData] = useState({
     email: "Enter email",
     password: "Enter password"
